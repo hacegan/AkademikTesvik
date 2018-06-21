@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+           <style>
+           input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float:right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+            </style>
+        
+             <f:metadata>
+                            <f:viewParam name="ad" value="#{kntrl.adsoyad}"/>
+                                         <f:viewParam name="id" value="#{kntrl.kisiid}"/>
+                                         
+    </f:metadata>
+        
+        <title>HOSGELDIN</title>
+      
+        
+    </h:head>
+    <h:body>
+       
+        <h:form>
+            
+            <ui:composition template="./newTemplate.xhtml">
+
+    		<ui:define name="top" >  			
+                    <h:form style="overflow: auto;">
+  
+                        <h:commandButton value="ANASAYFA" style="float: right;margin-left: 15px; " action="anasayfa"/>      
+                        <h:commandButton value="ÇIKIŞ YAP" style="float: right; margin-left: 15px;" onclick="#{kntrl.oturumkapat()}"  action="index" />
+                        <h:commandButton value="KREDİ PUANIN" style="float:right; margin-left: 15px;" action="#{kntrl.showjsf()}"/>
+                        <h:commandButton value="BASKA SAYFA" style="float:right; margin-left: 15px;" action="#{kntrl.baskaata()}" /> 
+                        <h:commandButton value="PROJE EKLE" style="float:right; margin-left: 15px;" action="#{kntrl.projeekleata()}" /> 
+                        <h:commandButton value="ARAŞTIRMA EKLE" style="float:right; margin-left: 15px;" action="#{kntrl.arastirmaekleata()}" />
+                        <h:commandButton value="PATENT EKLE" style="float:right; margin-left: 15px;"   action="#{kntrl.patentekleata()}"/>
+                        <h:commandButton value="ÖDÜL EKLE" style="float:right; margin-left: 15px;"   action="#{kntrl.odulekleata()}"/>
+                        <h:commandButton value="TASARIM EKLE" style="float:right; margin-left: 15px;"   action="#{kntrl.tasarimekleata()}"/>
+                        <h:commandButton value="TEBLİĞ EKLE" style="float:right; margin-left: 15px;"   action="#{kntrl.tebekleata()}"/>
+                        <h:commandButton value="SERGİ EKLE" style="float:right; margin-left: 15px;"   action="#{kntrl.sergiekleata()}"/>
+                        <h:commandButton value="YAYIN EKLE" style="float:right; margin-left: 15px;"   action="#{kntrl.yayinekleata()}"/>
+                        <h:commandButton value="GEÇMİŞİM" style="float:right; margin-left: 15px;"   action="#{kntrl.gecmisekleata()}"/>
+                        <h:commandButton value="Kisiler Rapor" style="float:right; margin-left: 15px;"  action="#{kntrl.kisiraporolustur()}" />
+                        
+                           <h:outputLabel value="#{kntrl.adsoyad}"  style="font-size: 20px; float: right; margin-bottom: 5px;"/>
+                    </h:form>
+               
+    		</ui:define>
+
+		<ui:define name="content">
+                    <h:panelGroup rendered="#{not empty kntrl.jsfurl}" >
+                        <iframe src="#{kntrl.jsfurl}" width="400" height="400"></iframe>
+</h:panelGroup>
+                    <h:panelGroup rendered="#{not empty kntrl.baskaurl}">
+                        <iframe src="#{kntrl.baskaurl}" width="400" height="400"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.projeekleurl}">
+                        <iframe src="#{kntrl.projeekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.arastirmaekleurl}">
+                        <iframe src="#{kntrl.arastirmaekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.patentekleurl}">
+                        <iframe src="#{kntrl.patentekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.odulekleurl}">
+                        <iframe src="#{kntrl.odulekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.tasarimekleurl}">
+                        <iframe src="#{kntrl.tasarimekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.tebekleurl}">
+                        <iframe src="#{kntrl.tebekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.sergiekleurl}">
+                        <iframe src="#{kntrl.sergiekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.yayinekleurl}">
+                        <iframe src="#{kntrl.yayinekleurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+                    <h:panelGroup rendered="#{not empty kntrl.gecmisurl}">
+                        <iframe src="#{kntrl.gecmisurl}" width="1400" height="1000"></iframe>
+                    </h:panelGroup>
+                    
+    		</ui:define>
+
+    	</ui:composition>
+            
+        </h:form>
+    </h:body>
+</html>
+

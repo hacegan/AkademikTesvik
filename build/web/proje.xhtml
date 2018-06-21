@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+            
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="Proje Görevleri" style="margin-right: 10px;" /> 
+            <h:commandButton value="Yeni Ekle" style="margin-right: 10px;"/>
+        <h:commandButton value="Yazdır" style="margin-right: 10px;"/> 
+        <h:inputText  pt:placeholder="Proje Görevlerinde Ara" style="margin-right: 10px;" />
+        <h:commandButton value="Ara" />
+            
+        </h:form>
+        
+        <br/><br/>
+        <h:form>
+            
+            <h:dataTable>
+                 
+                <f:facet name="header">
+                    <h:outputText value="Güncelle" style="margin: 10px; color: red;" />
+                    
+                </f:facet>
+                
+                <f:facet name="header">
+                    <h:outputText value="Sil" style="margin: 10px; color: red;"/>
+                </f:facet>
+                
+                 <f:facet name="header">
+                    <h:outputText value="Id" style="margin: 10px;color: red;"/>
+                </f:facet>
+                 <f:facet name="header">
+                    <h:outputText value="Unvan" style="margin: 10px;color: red;"/>
+                </f:facet>
+                
+                 <f:facet name="header">
+                    <h:outputText value="Kurum" style="margin: 10px;color: red;"/>
+                </f:facet>
+                 <f:facet name="header">
+                    <h:outputText value="Projedeki Kurumu" style="margin: 10px;color: red;" />
+                </f:facet>
+                 <f:facet name="header">
+                    <h:outputText value="Proje Türü" style="margin: 10px;color: red;"/>
+                </f:facet>
+                 <f:facet name="header">
+                    <h:outputText value="Proje Durumu" style="margin: 10px;color: red;"/>
+                </f:facet>
+                   <f:facet name="header">
+                    <h:outputText value="Başlangıç Tarihi" style="margin: 10px;color: red;"/>
+                </f:facet>
+                   <f:facet name="header">
+                    <h:outputText value="Bitiş Tarihi" style="margin: 10px;color: red;"/>
+                </f:facet>
+                
+                
+            </h:dataTable>
+     
+        </h:form>
+        
+        
+        
+    </h:body>
+</html>
+

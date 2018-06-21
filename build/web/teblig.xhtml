@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+          
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <style>
+            *
+            {
+                font-family: tahoma;
+                font-size: 15px;
+                background-color: #c2dfef;
+                margin:8px;
+            }
+        </style>
+         <f:metadata>
+                            <f:viewParam name="ad" value="#{kntrl.adsoyad}" />
+                            <f:viewParam name="id" value="#{kntrl.kisiid}" />
+    </f:metadata>
+          <title>Facelet Title</title>
+    </h:head>
+    <h:body><center>
+            <p:messages showDetail="true" /> 
+        <h:form enctype="multipart/form-data"> 
+            <p:fileUpload value="#{kntrl.file}" mode="simple" />
+          <p:commandButton value="Kanıt Yükle" ajax="false" actionListener="#{kntrl.upload()}" /><br/>
+            Kapsam <h:selectOneListbox value="#{kntrl.tebligkapsam}">
+                <f:selectItem itemLabel="Ulusal" itemValue="Ulusal" />
+            <f:selectItem itemLabel="Uluslararası" itemValue="Uluslararası"/>
+            
+        </h:selectOneListbox><br/>
+        
+        Bildiri Türü <h:selectOneListbox value="#{kntrl.tebbiltur}">
+            <f:selectItem itemLabel="Poster"  itemValue="Poster"/>
+        </h:selectOneListbox><br/>
+        Yayın Durumu <h:selectOneListbox value="#{kntrl.tebyaydur}">
+            <f:selectItem itemLabel="Yayınlanmış"  itemValue="Yayınlanmış"/>
+            <f:selectItem itemLabel="Yayınlanmamış" itemValue="Yayınlanmamış"/>
+        </h:selectOneListbox><br/>      
+        Bildiri Adı <h:inputTextarea value="#{kntrl.tebadi}" required="true" requiredMessage="*" /><br/>
+        Yazar Sayısı <h:selectOneListbox value="#{kntrl.tebyazsayi}">
+            <f:selectItem itemLabel="1"  itemValue="1"/>
+            <f:selectItem itemLabel="2" itemValue="2"/>
+            <f:selectItem itemLabel="3" itemValue="3"/>
+            <f:selectItem itemLabel="4" itemValue="4"/>
+            <f:selectItem itemLabel="5" itemValue="5"/>
+   
+        </h:selectOneListbox><br/>
+        Yazarlar  <h:inputText value="#{kntrl.tebyazarlar}" /><br/>
+        Etkinlik Adı <h:inputText value="#{kntrl.tebetkadi}" /><br/>
+        Etkinlik Tarihi : Başlangıç Tarihi:<h:inputText value="#{kntrl.tebbastar}" /><br/>
+        Bitiş Tarihi: <h:inputText value="#{kntrl.tebbittar}" /><br/>
+        Basım Türü  <h:selectOneListbox value="#{kntrl.tebbastur}">
+            <f:selectItem itemLabel="Basılı" itemValue="Basılı"/>
+            <f:selectItem itemLabel="Basılı Değil" itemValue="Basılı Değil"/>
+            
+        </h:selectOneListbox><br/>
+        
+        Basım Tarihi <h:inputText value="#{kntrl.tebbasimtar}" /><br/>
+        Dil :<h:selectOneListbox value="#{kntrl.tebdil}">
+            <f:selectItem itemLabel="İngilizce" itemValue="İngilizce"/>
+            <f:selectItem itemLabel="Türkçe" itemValue="Türkçe"/>
+           
+        </h:selectOneListbox><br/>
+        
+  
+        
+        <h:commandButton value="Değişiklikleri Kaydet"  action="#{kntrl.tebligkaydet()}"/>
+        
+        
+        
+        
+        </h:form></center>
+    </h:body>
+</html>
+

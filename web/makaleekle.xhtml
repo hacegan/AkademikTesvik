@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       
+        <h:form>
+            Makale/Teknik Not v.b <h:commandButton value="Geri" />
+            Makale Türü <h:selectManyListbox>
+                <f:selectItem itemLabel="Özgün Makale" />
+            </h:selectManyListbox>
+            Dergi Adı <h:inputText value="" />
+            Kapsam <h:selectOneRadio>
+                <f:selectItem itemLabel="Ulusal" />
+                <f:selectItem itemLabel="Uluslararası" />
+            </h:selectOneRadio>
+             Tür <h:selectOneRadio>
+                <f:selectItem itemLabel="Ulusal" />
+                <f:selectItem itemLabel="Uluslararası" />
+            </h:selectOneRadio>
+            Endeks <h:selectManyListbox>
+                <f:selectItem itemLabel="Diğer Endeksler" />
+            </h:selectManyListbox>
+            Endeks Belirtiniz  <h:inputText value="" />
+            Alan Bilgisi <h:inputTextarea value="" />
+            Yayın Adı <h:inputTextarea value="" />
+            Yazar Sayısı <h:selectManyListbox>
+                <f:selectItem itemLabel="1" />
+            </h:selectManyListbox>
+            Yazar(lar) <h:inputText value="" />
+            Ay/Yıl/Dil <h:selectOneListbox>
+                <f:selectItem itemLabel="Ocak" />
+                 <f:selectItem itemLabel="Şubat" />
+                  <f:selectItem itemLabel="Mart" />
+                   <f:selectItem itemLabel="Nisan" />
+                    <f:selectItem itemLabel="Mayıs" />
+                     <f:selectItem itemLabel="Haziran" />
+                      <f:selectItem itemLabel="Temmuz" />
+                       <f:selectItem itemLabel="Ağustos" />
+                        <f:selectItem itemLabel="Eylül" />
+                         <f:selectItem itemLabel="Ekim" />
+                          <f:selectItem itemLabel="Kasım" />
+                          <f:selectItem itemLabel="Aralık" />
+            </h:selectOneListbox>
+            <h:selectOneListbox>
+                <f:selectItem itemLabel="2015" />
+                <f:selectItem itemLabel="2016"/>
+                <f:selectItem itemLabel="2017" />
+            </h:selectOneListbox>
+            
+            Cilt: <h:inputText value="" /> Sayı: <h:inputText value="" />
+            Sayfalar <h:inputText value=""  pt:placeholder="İlk"  /> <h:inputText value="" pt:placeholder="Son" />
+            Sponsor <h:selectBooleanCheckbox value="false" />
+            Ülke : <h:selectOneListbox>
+                <f:selectItem itemLabel="Türkiye"/>
+                <f:selectItem itemLabel="Almanya" />
+                <f:selectItem itemLabel="Amerika" />
+                
+            </h:selectOneListbox>
+            
+            Şehir  <h:inputText pt:placeholder="Şehir Adı" />
+            
+              <h:selectBooleanCheckbox value="false" /> Yayınım kabul edildi basım aşamasında
+            
+            
+              <h:commandButton value="Değişikleri Kaydet" />
+              <h:commandButton value="Vazgeç" />
+              
+        </h:form>
+        
+        
+        
+    </h:body>
+</html>
+

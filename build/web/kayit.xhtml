@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+         <link rel="stylesheet" href="css/style.css"/> 
+         
+    </h:head>
+    <h:body>
+        <h:outputScript library="js" name="javasc.js" />
+        
+            <div class="login-page">
+  <div class="form">
+    <h:form class="login-form">
+        <h:inputText  pt:placeholder="Kullanıcı Adı" value="#{kntrl.kulad}"/>
+        <h:inputSecret pt:placeholder="Kullanıcı Şifre"  value="#{kntrl.kulsifre}"/>
+        <h:inputText pt:placeholder="Ad Soyad"  value="#{kntrl.adsoyad}"/>
+        <h:inputText pt:placeholder="Birim"  value="#{kntrl.birim}"/>
+        <h:inputText pt:placeholder="Bölüm" value="#{kntrl.bolum}" />
+        <h:inputText pt:placeholder="Ünvan"  value="#{kntrl.unvan}"/>
+        <h:commandButton value="Oluştur" style="color: white; background-color: #43A047;"  action="#{kntrl.kullaniciekle()}"/>
+  
+    </h:form>
+   
+      
+  </div>
+</div>
+        
+        
+        
+    </h:body>
+</html>
+

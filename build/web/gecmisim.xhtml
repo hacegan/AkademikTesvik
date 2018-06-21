@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <f:metadata>
+                            <f:viewParam name="ad" value="#{kntrl.adsoyad}" />
+                            <f:viewParam name="id" value="#{kntrl.kisiid}" />
+    </f:metadata>
+    </h:head>
+    <h:body>
+#{kntrl.kisiid}<br/>
+<p:messages showDetail="true" />
+        <h:form  id="proje" enctype="multipart/form-data">
+            
+            <h:commandButton value="PROJE Geçmiş" action="#{kntrl.projerendered()}" style="margin-right: 10px;">     
+                <f:ajax  render=":proje :projetablo"/>
+            </h:commandButton>         
+            <h:commandButton value="Araştırma Geçmiş" action="#{kntrl.arastirmarendered()}" style="margin-right: 10px;">
+                <f:ajax render=":proje :arastirmatablo" />
+            </h:commandButton>
+            <h:commandButton value="Teblig Geçmiş" action="#{kntrl.bildirirendered()}" style="margin-right: 10px;">
+                <f:ajax render=":proje :bildiritablo" />
+            </h:commandButton>
+            <h:commandButton value="Ödül Geçmiş" action="#{kntrl.odulrendered()}" style="margin-right: 10px;">
+                <f:ajax render=":proje :odultablo" />
+            </h:commandButton>
+            <h:commandButton value="Patent Geçmiş" style="margin-right: 10px;" action="#{kntrl.patentrendered()}">
+                <f:ajax render=":proje :patenttablo" />     
+            </h:commandButton>
+            <h:commandButton value="Tasarım Geçmiş" style="margin-right: 10px;" action="#{kntrl.tasarimrendered()}">
+                <f:ajax render=":proje :tasarimtablo" />
+            </h:commandButton>
+            <h:commandButton value="Sergi Geçmiş" style="margin-right: 10px;" action="#{kntrl.sergirendered()}">
+                <f:ajax render=":proje :sergitablo" />
+            </h:commandButton>
+            
+            
+            
+            
+            <!-- PROJEEEEEE-->
+            
+            <h:dataTable border="1" cellpadding="7px" value="#{kntrl.projelistedondur()}" var="proje"  id="projetablo" rendered="#{kntrl.projetabloaktif}">
+                <h:column >
+                    <f:facet name="header" >Proje Adı</f:facet>
+                        #{proje.projead}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Proje Konusu</f:facet>
+                        #{proje.projekonu}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Proje Durumu</f:facet>
+                        #{proje.projedurum}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Proje Görevi</f:facet>
+                        #{proje.projegorev}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Proje Başlangıç Tarihi</f:facet>
+                        #{proje.projebastar}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Proje Bitiş Tarihi</f:facet>
+                        #{proje.projebittar}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Proje Kanıtı</f:facet>
+                    <h:commandButton   value="Kanıtı İndir" action="projekanitindir"  >  
+                      <!-- <f:ajax render=":proje :projetablo" />
+                        <f:event listener="#{kntrl.projedownload()}" type="preRenderComponent"    />          -->             
+                    </h:commandButton>
+                    
+                </h:column>
+            </h:dataTable>
+            
+            <!--- 
+            ARAŞTIRMAAAA
+            
+            -->
+            <h:dataTable border="1" cellpadding="7px" id="arastirmatablo" value="#{kntrl.arastirmalistedondur()}" var="arastirma" rendered="#{kntrl.arastirmatabloaktif}">
+                <h:column>
+                    <f:facet  name="header">Araştırma Adı</f:facet>
+                    #{arastirma.arastirmaadi}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma Başlığı</f:facet>
+                    #{arastirma.arastirmabaslik}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma İçeriği</f:facet>
+                    #{arastirma.arastirmaicerik}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma Yer</f:facet>
+                    #{arastirma.arastirmayer}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma Ulke</f:facet>
+                    #{arastirma.arastirmaulke}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma Kisi Sayısı</f:facet>
+                    #{arastirma.arastirmakisisayi}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma Başlangıç Tarihi</f:facet>
+                    #{arastirma.arastirmabastar}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma Bitiş Tarihi</f:facet>
+                    #{arastirma.arastirmabittar}
+                </h:column>
+                  <h:column>
+                    <f:facet  name="header">Araştırma Kanıtı</f:facet>
+                    #{arastirma.arastirmakanit}
+                </h:column>
+            </h:dataTable>
+            
+            <!-- 
+            BİLDİRİİİİ
+            -->
+            
+            
+            <h:dataTable border="1" cellpadding="7px" id="bildiritablo" value="#{kntrl.bildirilistedondur()}" var="bildiri" rendered="#{kntrl.bildiritabloaktif}">
+                 <h:column>
+                    <f:facet  name="header">Bildiri Adı</f:facet>
+                    #{bildiri.bildiriad}
+                </h:column>
+                 <h:column>
+                    <f:facet  name="header">Bildiri Başlangıç Tarihi</f:facet>
+                    #{bildiri.bildiribastar}
+                </h:column>
+                 <h:column>
+                    <f:facet  name="header">Bildiri Bitiş Tarihi</f:facet>
+                    #{bildiri.bildiribittar}
+                </h:column>
+                 <h:column>
+                    <f:facet  name="header">Bildiri Kapsam</f:facet>
+                    #{bildiri.tebkapsam}
+                </h:column> 
+                <h:column>
+                    <f:facet  name="header">Bildiri Türü</f:facet>
+                    #{bildiri.tebbiltur}
+                </h:column>
+                
+                 <h:column>
+                    <f:facet  name="header">Bildiri Yayın Durumu</f:facet>
+                    #{bildiri.tebyaydur}
+                </h:column>
+                 <h:column>
+                    <f:facet  name="header">Bildiri Yazar Sayi</f:facet>
+                    #{bildiri.tebyazsayi}
+                </h:column>
+                 <h:column>
+                    <f:facet  name="header">Bildiri Yazarlar</f:facet>
+                    #{bildiri.tebyazarlar}
+                </h:column>
+                 <h:column>
+                    <f:facet  name="header">Bildiri Etkinlik Adı</f:facet>
+                    #{bildiri.tebetkadi}
+                </h:column>
+                
+                 <h:column>
+                    <f:facet  name="header">Bildiri Basım Türü</f:facet>
+                    #{bildiri.tebbasimtur}
+                </h:column>
+                
+                 <h:column>
+                    <f:facet  name="header">Bildiri Basım Tarihi</f:facet>
+                    #{bildiri.tebbasimtarih}
+                </h:column>
+                
+                 <h:column>
+                    <f:facet  name="header">Bildiri  Dili</f:facet>
+                    #{bildiri.tebdil}
+                </h:column>
+            </h:dataTable>
+            
+            
+            
+            <!-- Ödüllerrrr-->
+            
+            
+            
+            <h:dataTable border="1" cellpadding="7px" id="odultablo" value="#{kntrl.odullistedondur()}" var="odul" rendered="#{kntrl.odultabloaktif}">
+                    <h:column>
+                    <f:facet  name="header">Ödül  Kurumu ve Ülkesi</f:facet>
+                    #{odul.odulkurulke}
+                    </h:column  >
+                      <h:column>
+                    <f:facet  name="header">Ödül  Kurum Türü</f:facet>
+                    #{odul.odulkurtur}
+                      </h:column>
+                      <h:column>
+                    <f:facet  name="header">Ödül  Kurumu</f:facet>
+                    #{odul.odulkurum}
+                      </h:column>
+                      <h:column>
+                    <f:facet  name="header">Ödül  Tür</f:facet>
+                    #{odul.odultur}
+                      </h:column>
+                      <h:column>
+                    <f:facet  name="header">Ödül  Adı</f:facet>
+                    #{odul.odulad}
+                      </h:column>
+                      <h:column>
+                    <f:facet  name="header">Ödül  Yılı</f:facet>
+                    #{odul.odulyil}
+                      </h:column>
+                      <h:column>
+                    <f:facet  name="header">Ödül  Kişi Sayısı</f:facet>
+                    #{odul.odulkisisayi}
+                      </h:column>
+                      <h:column>
+                    <f:facet  name="header">Ödül  Açıklama</f:facet>
+                    #{odul.odulaciklama}
+                      </h:column>
+                
+                
+            </h:dataTable>
+            
+            <!-- PATENTTTTTT -->
+            
+            
+            <h:dataTable border="1" cellpadding="7px"  id="patenttablo" rendered="#{kntrl.patenttabloaktif}" value="#{kntrl.patentListedondur()}" var="patent" >
+                  <h:column>
+                    <f:facet  name="header">Patent  Bas Sahip </f:facet>
+                    #{patent.patbassahip}
+                      </h:column>
+                  <h:column>
+                    <f:facet  name="header">Patent  Bul Sahip</f:facet>
+                    #{patent.patbulsahip}
+                      </h:column>
+                  <h:column>
+                    <f:facet  name="header">Patent  Kategori</f:facet>
+                    #{patent.patkategori}
+                      </h:column>
+                  <h:column>
+                    <f:facet  name="header">Patent  Dos Tip</f:facet>
+                    #{patent.patdostip}
+                      </h:column>
+                  <h:column>
+                    <f:facet  name="header">Patent  Yıl</f:facet>
+                    #{patent.patyil}
+                      </h:column>
+                  <h:column>
+                    <f:facet  name="header">Patent  Buluş Özeti</f:facet>
+                    #{patent.patbulozet}
+                      </h:column>
+       
+            </h:dataTable>
+            
+            <!--Tasarım  -->
+            
+            <h:dataTable border="1" cellpadding="7px" id="tasarimtablo"  rendered="#{kntrl.tasarimtabloaktif}" value="#{kntrl.tasarimlistedondur()}" var="tasarim">
+                <h:column>
+                    <f:facet  name="header">Tasarım  Sahibi</f:facet>
+                    #{tasarim.tasarimsahip}
+                      </h:column>
+                <h:column>
+                    <f:facet  name="header">Tasarım  Türü</f:facet>
+                    #{tasarim.tasarimtur}
+                      </h:column>
+                <h:column>
+                    <f:facet  name="header">Tasarım  Ad</f:facet>
+                    #{tasarim.tasarimad}
+                      </h:column>
+                <h:column>
+                    <f:facet  name="header">Tasarım  Açıklama</f:facet>
+                    #{tasarim.tasarimaciklama}
+                      </h:column>
+                <h:column>
+                    <f:facet  name="header">Tasarım  Başlangıç Tarihi</f:facet>
+                    #{tasarim.tasarimbastar}
+                      </h:column>
+                <h:column>
+                    <f:facet  name="header">Tasarım  Bitiş Tarihi</f:facet>
+                    #{tasarim.tasarimbittar}
+                      </h:column>
+
+            </h:dataTable>
+            
+            <!-- Sergiii-->
+            <h:dataTable border="1" cellpadding="7px" id="sergitablo"   rendered="#{kntrl.sergitabloaktif}" value="#{kntrl.sergilistedondur()}" var="sergi">
+                   <h:column>
+                    <f:facet  name="header">Sergi  Adı</f:facet>
+                    #{sergi.sergiad}
+                      </h:column>
+                   <h:column>
+                    <f:facet  name="header">Sergi  Tarihi</f:facet>
+                    #{sergi.sergitar}
+                      </h:column>
+                   <h:column>
+                    <f:facet  name="header">Sergi  Kapsamı</f:facet>
+                    #{sergi.sergikapsam}
+                      </h:column>
+                   <h:column>
+                    <f:facet  name="header">Sergi  Tipi</f:facet>
+                    #{sergi.sergitip}
+                      </h:column>
+                   <h:column>
+                    <f:facet  name="header">Sergi  Kişi Sayısı</f:facet>
+                    #{sergi.sergikisisayi}
+                      </h:column>
+                   <h:column>
+                    <f:facet  name="header">Sergi Süresi</f:facet>
+                    #{sergi.sergisure}
+                      </h:column>
+                
+                
+                
+            </h:dataTable>
+            
+            
+        </h:form>
+
+    </h:body>
+</html>
+

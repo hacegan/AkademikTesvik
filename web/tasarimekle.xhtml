@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+          
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+          <f:metadata>
+                            <f:viewParam name="ad" value="#{kntrl.adsoyad}" />
+                            <f:viewParam name="id" value="#{kntrl.kisiid}" />
+    </f:metadata>
+        <title>Facelet Title</title>
+        <style>
+            *
+            {
+                margin: 20px;
+                font-family: tahoma;
+                background-color: antiquewhite;
+            }
+        </style>
+    </h:head>
+    <h:body>
+          <center><p:messages showDetail="true" /> 
+        <h:form enctype="multipart/form-data">
+          
+            <h:outputLabel value="Tasarım" style="color: red;" />
+            <p:fileUpload value="#{kntrl.file}" mode="simple" />
+          <p:commandButton value="Kanıt Yükle" ajax="false" actionListener="#{kntrl.upload()}" />
+            <br/>
+            <h:outputLabel value="Tasarım Sahipleri"/>  <h:inputTextarea value="#{kntrl.tasarimsahip}" /><br/>
+            Tasarım Türü <h:inputText value="#{kntrl.tasarimtur}" /><br/>         
+            Tasarım Adı <h:inputText value="#{kntrl.tasarimad}" /><br/>
+            Açıklama <h:inputText value="#{kntrl.tasarimaciklama}" /><br/>
+            Başlangıç <h:inputText value="#{kntrl.tasarimbastar}" /><br/>
+            Bitiş <h:inputText value="#{kntrl.tasarimbittar}" /><br/>
+            <h:commandButton value="Değişiklikleri Kaydet" action="#{kntrl.tasarimkaydet()}" />
+            
+            
+        </h:form></center>
+        
+        
+        
+        
+        
+    </h:body>
+</html>
+

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+        
+        <ui:composition template="./newTemplate.xhtml">
+            
+            <ui:define name="top" >
+                <h:form style="overflow: auto;">
+                    <h:commandButton value="ANASAYFA" style="float: right;margin-left: 15px; " action="adminarayuz"/>
+                    <h:commandButton value="KULLANICILARI LİSTELE" style="float:right; margin-left: 15px;" action="#{kntrl.adminkulyonetata()}" />
+                    <h:commandButton value="ÇIKIŞ YAP" style="float:right; margin-left: 15px;" onclick="#{kntrl.oturumkapat()}" action="index" />
+                    <h:commandButton value="YENİ KULLANICI EKLE" style="float:right; margin-left: 15px;" action="#{kntrl.adminyenikulekleata()}"/>
+                </h:form>
+
+            </ui:define>
+            
+            <ui:define name="content">
+                
+                <h:panelGroup rendered="#{not empty kntrl.adminkullaniciyonetmeurl}" >
+                    <iframe src="#{kntrl.adminkullaniciyonetmeurl}" width="1350" height="800"></iframe>
+</h:panelGroup>
+                <h:panelGroup rendered="#{not empty kntrl.adminyenikulekleurl}">
+                     <iframe src="#{kntrl.adminyenikulekleurl}" width="1150" height="600"></iframe>
+                </h:panelGroup>
+                
+            </ui:define>
+            
+            
+        </ui:composition>
+        
+        
+        
+        
+    </h:body>
+</html>
+

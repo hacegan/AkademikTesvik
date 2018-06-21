@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+          
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        
+        
+         <f:metadata>
+                            <f:viewParam name="ad" value="#{kntrl.adsoyad}" />
+                            <f:viewParam name="id" value="#{kntrl.kisiid}" />
+    </f:metadata>
+        <title>Facelet Title</title>
+        <style>
+            *{
+                margin: 10px;
+                font-family: tahoma;
+            }
+
+
+        </style>
+
+    </h:head>
+    <h:body>
+        <center>
+          
+        <h:form enctype="multipart/form-data">
+              <p:messages showDetail="true" /> 
+            <h:outputLabel value="Araştırma,Sertifika,Kurs,vb." style="font-family: cursive; color: red;" /> 
+            <p:fileUpload value="#{kntrl.file}" mode="simple" />
+            <p:commandButton value="Kanıt Yükle" ajax="false" actionListener="#{kntrl.arastirmaupload()}" />
+            <br/> <br/> 
+            
+            
+            <h:outputLabel value="Kapsam" />
+            <h:selectOneRadio id="kapsamid" value="#{kntrl.arastirmakapsam}">
+                <f:selectItem itemValue="Ulusal" itemLabel="Ulusal"/>
+                <f:selectItem itemValue="Uluslararası" itemLabel="Uluslararası" />
+            </h:selectOneRadio>
+            <h:outputLabel value="Başlık" /><br/>
+            <h:selectOneListbox value="#{kntrl.arasbaslik}">
+                <f:selectItem itemValue="Araştırma" />
+                <f:selectItem itemValue="Sertifika" />
+                <f:selectItem itemValue="Kurs" />
+            </h:selectOneListbox><br/>
+            <h:outputLabel value="Adı" />
+            <h:inputText pt:placeholder="Araştırma Adı"  value="#{kntrl.arasad}"/> <br/>
+            <h:outputLabel value="İçerik" />
+            <h:inputText pt:placeholder="Araştırmaya ait içerik bu alana yazılır" value="#{kntrl.arasicerik}"/><br/>
+            <h:outputLabel value="Yer"/>
+            <h:inputText pt:placeholder="Araştırmanın yapıldığı yer" value="#{kntrl.arasyer}"/><br/>
+            <h:outputLabel value="Ülke/Şehir" />
+            <h:inputText value="#{kntrl.arasulke}" /><br/>
+            <h:outputLabel value="Araştırma Kişi Sayısı" />    
+            <h:inputText value="#{kntrl.araskisisayi}" />
+            
+            <br/>
+            
+            <h:outputLabel value="Başlangıç Tarihi " />
+            <h:inputText  style="margin:10px;" value="#{kntrl.arasbastar}"/><br/>
+         <h:outputLabel value="Bitiş Tarihi" />
+         <h:inputText value="#{kntrl.arasbittar}" /><br/>
+         <h:commandButton value="Kaydet" style="margin: 10px;" action="#{kntrl.arastirmakaydet()}"/>           
+        </h:form></center>
+    </h:body>
+</html>
+

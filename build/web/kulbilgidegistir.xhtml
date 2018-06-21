@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+          <f:metadata>                           
+                                         <f:viewParam name="id" value="#{kntrl.kisiid}"/>
+                                         
+    </f:metadata>
+        
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        #{kntrl.kisiid}
+         <p:messages showDetail="true" /> 
+         
+        <h:dataTable var="kul" value="#{kntrl.kisibilgigetir()}">
+           <h:column>
+                <f:facet name="header">Kullanıcı Adı</f:facet>
+                <h:inputText value="#{kul.kulad}" />     
+                <h:inputHidden value="#{kntrl.degistiradata(kul.kulad)}" />
+           </h:column>
+            <h:column>
+                <f:facet name="header">Kullanıcı Şifresi</f:facet>
+                <h:inputText value="#{kul.kulsifre}" />
+                <h:inputHidden value="#{kntrl.degistirsifreata(gelensifre)}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Adı Soyadı</f:facet>
+                <h:inputText value="#{kul.adsoyad}" />
+                <h:inputHidden value="#{kntrl.degistiradsoyadata(gelenadsoyad)}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Bölümü</f:facet>
+                <h:inputText value="#{kul.bolum}" />
+                <h:inputHidden value="#{kntrl.degistirbolumata(gelenbolum)}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Birimi</f:facet>
+                <h:inputText value="#{kul.birim}" />
+                <h:inputHidden value="#{kntrl.degistirbirimata(gelenbirim)}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Ünvanı</f:facet>
+                <h:inputText value="#{kul.unvan}" />
+                <h:inputHidden value="#{kntrl.degistirunvanata(gelenunvan)}" />
+            </h:column>
+            <!--
+             <h:column>
+                <f:facet name="header">Kullanıcı Puanı</f:facet>
+                <h:inputText value="#{kul.puan}"  binding="#{kntrl.puan}" />
+              
+            </h:column>-->
+   
+        </h:dataTable>
+       
+        <h:commandButton id="tiklabuton" value="DEĞİŞTİR" style="margin-left: 600px;" action="#{kntrl.kullanicieditle()}"/> 
+        <h:message for="tiklabuton" /> 
+        </h:form>
+    </h:body>
+</html>
+

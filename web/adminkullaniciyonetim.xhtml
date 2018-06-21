@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       
+        <h:dataTable var="kullanici" value="#{kntrl.kullanicilistesidondur()}" border="1">
+            <h:column>
+                <f:facet name="header">Kullanıcı Adı</f:facet>
+                <h:outputText value="#{kullanici.kulad}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Kullanıcı Şifresi</f:facet>
+                <h:outputText value="#{kullanici.kulsifre}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Adı Soyadı</f:facet>
+                <h:outputText value="#{kullanici.adsoyad}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Bölümü</f:facet>
+                <h:outputText value="#{kullanici.bolum}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Birimi</f:facet>
+                <h:outputText value="#{kullanici.birim}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Ünvanı</f:facet>
+                <h:outputText value="#{kullanici.unvan}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Kullanıcı Puanı</f:facet>
+                <h:outputText value="#{kullanici.puan}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Eylemler</f:facet>
+                <h:outputLink value="kulbilgidegistir.xhtml" >
+                    <h:outputText value="Değiştir" />
+                    <f:param name="id" value="#{kullanici.kid}" />
+                    </h:outputLink>&nbsp;&nbsp;&nbsp;
+                <h:outputLink value="kulsil.xhtml">
+                    <h:outputText value="Sil" />
+                    <f:param name="id" value="#{kullanici.kid}" />
+                    </h:outputLink>&nbsp;&nbsp;&nbsp;
+                    <h:outputLink value="kulakislevgoster.xhtml">
+                        <h:outputText value="Kullanıcının geçmiş akademik işlevlerini göster" />
+                        <f:param name="id" value="#{kullanici.kid}" />
+                    </h:outputLink>
+            </h:column>
+        </h:dataTable>
+        
+        
+        
+    </h:body>
+</html>
+

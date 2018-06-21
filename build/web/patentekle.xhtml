@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+           
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+    <h:head>
+         <f:metadata>
+                            <f:viewParam name="ad" value="#{kntrl.adsoyad}" />
+                            <f:viewParam name="id" value="#{kntrl.kisiid}" />
+    </f:metadata>
+        <title>Facelet Title</title>
+        <style>
+            *{
+                margin: 24px;
+                font-family: tahoma;
+            }
+            
+        </style>
+    </h:head>
+    <h:body>
+        <center>
+              <p:messages showDetail="true" /> 
+        <h:form enctype="multipart/form-data">
+            <h:outputLabel style="color: red;" value="Patent" />
+            <p:fileUpload value="#{kntrl.file}" mode="simple" />
+          <p:commandButton value="Kanıt Yükle" ajax="false" actionListener="#{kntrl.upload()}" />
+            <br/><br/>
+            
+            <h:outputLabel value="Patent Başvuru Sahipleri" /><br/>
+            <h:inputTextarea pt:placeholder="Başvuru Sahibi Adı Soyadı" value="#{kntrl.patbassahip}"/><br/>
+            
+            <h:outputLabel value="Patent Buluş Sahipleri" /><br/>
+            <h:inputTextarea pt:placeholder="Buluş Sahibi Adı Soyadı" value="#{kntrl.patbulsahip}"/><br/>
+            
+            Patent Kategori  <h:inputText value="#{kntrl.patkategori}" /><br/>
+          
+            Patent Dosya Tipi  <h:inputText value="#{kntrl.patdostip}" /><br/>
+            
+            Patent Alındığı Yıl <h:inputText value="#{kntrl.patyil}" /><br/>
+            
+            Buluş Özeti <h:inputText value="#{kntrl.patbulozet}" /> <br/>
+            
+            <h:commandButton value="KAYDET"   action="#{kntrl.patentkaydet()}"/>
+            
+            
+            
+            
+            
+            
+        </h:form></center>
+        
+        
+        
+        
+    </h:body>
+</html>
+

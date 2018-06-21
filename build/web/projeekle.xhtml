@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"        
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+            *{
+                margin: 10px;
+                font-family: tahoma;
+                
+             
+            }
+        </style>
+        
+         <f:metadata>
+                            <f:viewParam name="ad" value="#{kntrl.adsoyad}" />
+                            <f:viewParam name="id" value="#{kntrl.kisiid}" />
+    </f:metadata>
+        
+        <title>Facelet Title</title>
+        
+    </h:head>
+    <h:body>
+        <center>
+        <h:form enctype="multipart/form-data">
+         <h:outputLabel value="Proje Görevleri" />&nbsp;
+         
+          <p:messages showDetail="true" /> 
+          <p:fileUpload value="#{kntrl.file}" mode="simple" />
+          <p:commandButton value="Kanıt Yükle" ajax="false" actionListener="#{kntrl.projeupload()}" />
+          
+         
+         <br/> 
+         <!--
+         <div>
+             Proje Kapsamı <h:selectOneRadio required="true" requiredMessage="Proje Kapsam Türü Gerekli"  id="kapsam" value="#{kntrl.projetür}">                  
+                 <f:selectItem itemLabel="Ulusal Destekli" itemValue="Ulusal"/>
+            <f:selectItem itemLabel="Uluslarası Destekli"  itemValue="Uluslararası"/>
+         </h:selectOneRadio>
+         <h:message for="kapsam" style="color: red;" />
+         </div>-->
+         <hr/>
+         
+                     <h:outputLabel value="Proje Destek Türü" /><br/><br/>
+                     
+                     Ulusal <h:selectOneListbox style="width:150%; height:150%;" value="#{kntrl.ulusalitem}" >
+                         <f:selectItem itemLabel="TÜBA ve TÜBİTAK destekli proje" itemValue="TÜBA ve TÜBİTAK destekli proje" /> 
+                         <f:selectItem itemLabel="Kalkınma Bakanlığı destekli proje (Yalnızca Ar-Ge niteliğindeki projeler)" itemValue="Kalkınma Bakanlığı destekli proje (Yalnızca Ar-Ge niteliğindeki projeler)"  />                           
+                     </h:selectOneListbox>
+             <br/><br/>
+             
+             Uluslararası <h:selectOneListbox style="width:150%; height:150%;" value="#{kntrl.uluslaritem}">
+                 <f:selectItem itemLabel="Dünya Bankası, Avrupa Birliği ve Avrupa Konseyi tarafından desteklenmiş proje (Yalnızca Ar-Ge niteliğindeki projeler)"  itemValue="Dünya Bankası, Avrupa Birliği ve Avrupa Konseyi tarafından desteklenmiş proje (Yalnızca Ar-Ge niteliğindeki projeler)" /> 
+                 <f:selectItem itemLabel="Diğer uluslararası özel veya resmi kurum ve kuruluşlar tarafından desteklenmiş proje (Yalnızca Ar-Ge niteliğindeki projeler)" itemValue="Diğer uluslararası özel veya resmi kurum ve kuruluşlar tarafından desteklenmiş proje (Yalnızca Ar-Ge niteliğindeki projeler)" />                       
+                     </h:selectOneListbox>
+             <br/>
+         
+         <h:outputLabel value="Proje Durumu" />
+             <br/>
+             <h:selectOneListbox value="#{kntrl.projedurum}">
+                 <f:selectItem itemLabel="Beklemede" itemValue="Beklemede"/>
+                 <f:selectItem itemLabel="Devam Ediyor" itemValue="Devam Ediyor"/>
+                 <f:selectItem  itemLabel="Ertelendi" itemValue="Ertelendi"/>
+                 <f:selectItem itemLabel="Tamamlandı" itemValue="Tamamlandı"/>
+             </h:selectOneListbox>
+             
+             <br/>
+        
+         <h:outputLabel value="Projedeki Görev" />
+             <br/>
+             <h:selectOneListbox value="#{kntrl.projegorev}">
+                 <f:selectItem itemLabel="Yürütücü"    itemValue="Yürütücü"/>
+                 <f:selectItem itemLabel="Araştırmacı" itemValue="Araştırmacı"/>
+                 <f:selectItem  itemLabel="Danışman" itemValue="Danışman"/>
+                 <f:selectItem itemLabel="Uzman" itemValue="Uzman"  />
+             </h:selectOneListbox>
+             
+       
+             
+         <br/>
+ 
+         <h:outputLabel value="Proje Adı " />
+         <h:inputTextarea style="margin: 10px;" value="#{kntrl.projead}"/><br/>
+         <h:outputLabel value="Projenin Konusu " />
+         <h:inputTextarea style="margin: 10px;" value="#{kntrl.projekonu}"/><br/>
+         <h:outputLabel value="Başlangıç Tarihi " />
+         <h:inputText  style="margin:10px;" value="#{kntrl.projebastar}"/><br/>
+         <h:outputLabel value="Bitiş Tarihi" />
+         <h:inputText value="#{kntrl.projebittar}" />
+         <br/> <br/>
+         <h:commandButton value="Kaydet" style="margin-right: 10px; height: 150%; width: 10%; background-color: #AFAFAF;" action="#{kntrl.projekaydet()}"/>
+         
+         
+        
+         
+        </h:form>
+        
+        </center>
+        
+        
+    </h:body>
+</html>
+

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Akademik Teşvik</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        
+       
+    </h:head>
+    
+    <h:body>
+        <h:outputScript library="js" name="javasc.js" />
+        <!--
+        <div id="giris">
+        
+            <h:form>
+            Kullanıcı No : <h:inputText value="" /><br/><br/><br/>
+        Şifre :  <h:inputSecret value="" /><br/><br/>
+        <h:commandButton value="Giriş"  />
+            
+            
+        </h:form>   
+        
+            
+        </div>
+            -->
+            <h:panelGroup>
+                
+            
+            
+            
+        <div class="login-page">
+  <div class="form">
+    <h:form class="register-form">
+        <h:inputText  pt:placeholder="Kullanıcı Adı"/>
+        <h:inputSecret pt:placeholder="password" />
+        <h:inputText pt:placeholder="email address" />
+        <h:commandButton value="Oluştur" />
+      <p class="message">Zaten Kayıtlı mısın? <a href="#">Giriş Yap</a></p>
+    </h:form>
+    <h:form class="login-form">
+        <h:inputText id="username" value="#{kntrl.kulad}"   pt:placeholder="Kullanıcı Adı"    required="true" requiredMessage="Kullanıcı adı girilmesi zorunlu"/>
+        <h:message for="username" style="color: red"></h:message>
+        <h:inputSecret id="pw" value="#{kntrl.kulsifre}" pt:placeholder="Şifre"   required="true" requiredMessage="Şifre girilmesi zorunlu"/>
+        <h:message for="pw" style="color: red; " ></h:message>
+        <h:commandButton value="GİRİŞ"  styleClass="button" action="#{kntrl.bilgidorumu()}" >          
+        </h:commandButton>
+        <h:messages  style="color: red;"  globalOnly="true"/>
+        <h:outputLabel  value="Kayıtlı Değil misin ? " style="color: red;"/> <h:link value="Hesap Oluştur" outcome="kayit.xhtml" style="text-decoration: none; color: #45a049;" />
+        
+      
+    </h:form>
+      
+  </div>
+</div>
+            </h:panelGroup>
+             
+            
+            <f:verbatim>
+                <script type="text/javascript">
+                   function onBack(){
+                        var kulad=document.getElementById("login-form:username").value;
+                        var kulsifre=document.getElementById("login-form:pw").value;
+                        alert(kulad);                
+                                
+                   }
+                    
+                </script> 
+                
+            </f:verbatim>
+           
+       
+        
+        
+        
+    </h:body>
+       
+</html>
+
